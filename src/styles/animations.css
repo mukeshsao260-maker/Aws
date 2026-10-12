@@ -1,0 +1,106 @@
+/* ========================================================
+   NOISE DEPT. — ANIMATIONS & MICRO-INTERACTIONS
+   ======================================================== */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes livePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(199, 255, 50, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(199, 255, 50, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(199, 255, 50, 0);
+  }
+}
+
+@keyframes signalRedPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(236, 61, 49, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(236, 61, 49, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(236, 61, 49, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-fast {
+  display: flex;
+  width: max-content;
+  animation: marquee 16s linear infinite;
+}
+
+.cursor-blink {
+  animation: cursorBlink 1s infinite steps(1);
+}
+
+.live-pulse {
+  animation: livePulse 2s infinite;
+}
+
+.red-pulse {
+  animation: signalRedPulse 2s infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

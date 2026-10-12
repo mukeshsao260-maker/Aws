@@ -1,0 +1,297 @@
+@import './tokens.css';
+@import './animations.css';
+
+/* ========================================================
+   GLOBAL BASE & RESET
+   ======================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Film Grain / Zine Noise Texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-size: 4px 4px;
+  opacity: 0.15;
+}
+
+[data-theme="light"] body::before {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 0);
+  opacity: 0.18;
+}
+
+/* Base Links & Buttons */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #7C7971;
+}
+
+/* ========================================================
+   NOISE DEPT. TYPOGRAPHY HIERARCHY
+   ======================================================== */
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.font-impact {
+  font-family: var(--font-impact);
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Editorial Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3.5vw, 3rem);
+}
+
+/* Grid Crosshair & Structural Line utilities */
+.border-b-grid {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.border-t-grid {
+  border-top: 1px solid var(--border-color);
+}
+
+.border-r-grid {
+  border-right: 1px solid var(--border-color);
+}
+
+.border-l-grid {
+  border-left: 1px solid var(--border-color);
+}
+
+.grid-ruled {
+  position: relative;
+}
+
+.grid-ruled::after {
+  content: "+";
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Controlled Disorder Badges & Tags */
+.zine-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.zine-tag-toxic {
+  background: var(--accent-toxic);
+  color: var(--accent-toxic-text, #0B0B0B);
+  border-color: var(--accent-toxic);
+  font-weight: 700;
+}
+
+.zine-tag-red {
+  background: var(--accent-red);
+  color: #FFFFFF;
+  border-color: var(--accent-red);
+  font-weight: 700;
+}
+
+.zine-tag-blue {
+  background: var(--accent-blue);
+  color: #FFFFFF;
+  border-color: var(--accent-blue);
+  font-weight: 700;
+}
+
+/* Section Header Typography */
+.section-meta-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  color: var(--accent-toxic);
+  font-weight: 700;
+}
+
+/* NOISE DEPT. Buttons */
+.btn-noise-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1rem 1.75rem;
+  background-color: var(--btn-primary-bg, var(--accent-toxic));
+  color: var(--btn-primary-text, #0B0B0B);
+  border: 1px solid var(--btn-primary-bg, var(--accent-toxic));
+  position: relative;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-noise-primary:hover {
+  background-color: var(--btn-primary-hover-bg, #FFFFFF);
+  border-color: var(--btn-primary-hover-bg, #FFFFFF);
+  color: var(--btn-primary-hover-text, #0B0B0B);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px var(--accent-red);
+}
+
+.btn-noise-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1rem 1.75rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  position: relative;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-noise-outline:hover {
+  border-color: var(--text-primary);
+  background-color: var(--bg-elevated);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px var(--text-primary);
+}
+
+/* Toast Notification */
+.noise-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10000;
+  max-width: 420px;
+  width: calc(100% - 4rem);
+  padding: 1rem 1.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  border-left: 5px solid var(--accent-toxic);
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+}
+
+.noise-toast.toast-error {
+  border-left-color: var(--accent-red);
+}
+
+.noise-toast.toast-success {
+  border-left-color: var(--accent-toxic);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

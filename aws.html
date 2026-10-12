@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AWS Student Builder Community Day at Rungta University — a fictional event registration website.">
+  <meta name="theme-color" content="#050b12">
+
+  <title>Student Builder Community Day | Rungta University</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="aws.css">
+</head>
+
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="nav container">
+
+      <a class="brand" href="#home" aria-label="Student Builder Community Day home">
+        <span class="aws-mark">aws</span>
+
+        <span class="brand-rule"></span>
+
+        <span class="brand-text">
+          Student Builder<br>
+          <b>Community Day</b>
+        </span>
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Open menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#community">Community</a>
+        <a href="#faq">FAQ</a>
+
+        <a class="nav-cta" href="#register">
+          Register <span>↗</span>
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-grid-lines"></div>
+
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+
+      <div class="container hero-layout">
+
+        <div class="hero-content reveal">
+
+          <p class="eyebrow">
+            <span class="live-dot"></span>
+            RUNGTA UNIVERSITY · CHHATTISGARH
+          </p>
+
+          <h1>
+            Aws. Student.<br>
+            <span>Community.</span><br>
+            Day.
+          </h1>
+
+          <p class="hero-lead">
+            A one-day student builder experience for turning ideas into
+            real projects with cloud, AI and modern web technologies.
+          </p>
+
+          <div class="hero-actions">
+
+            <a class="button button-primary" href="#register">
+              Reserve my seat
+              <span>→</span>
+            </a>
+
+            <a class="button button-ghost" href="#schedule">
+              Explore the day
+              <span>↓</span>
+            </a>
+
+          </div>
+
+          <div class="event-meta">
+
+            <div>
+              <small>Date</small>
+              <strong>18 OCT 2026</strong>
+            </div>
+
+            <div>
+              <small>Time</small>
+              <strong>10 AM — 5 PM</strong>
+            </div>
+
+            <div>
+              <small>Venue</small>
+              <strong>Rungta University</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- TERMINAL CARD -->
+        <div class="terminal reveal delay-1">
+
+          <div class="terminal-top">
+
+            <div class="window-dots">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+
+            <span>builder-day.sh</span>
+
+            <b>LIVE PREVIEW</b>
+
+          </div>
+
+          <div class="terminal-body">
+
+            <p>
+              <em>$</em>
+              init
+              <strong>student-builder</strong>
+            </p>
+
+            <p>
+              <em>$</em>
+              choose --track
+              <span class="green">cloud</span>
+            </p>
+
+            <p>
+              <em>$</em>
+              deploy --idea
+              <span class="orange">"my-first-app"</span>
+            </p>
+
+            <div class="terminal-output">
+              <span>✓</span>
+              environment ready
+            </div>
+
+            <div class="terminal-output">
+              <span>✓</span>
+              mentor connected
+            </div>
+
+            <div class="terminal-output">
+              <span>✓</span>
+              builder mindset:
+              <strong>ON</strong>
+            </div>
+
+            <div class="cursor">▋</div>
+
+          </div>
+
+          <div class="terminal-bottom">
+            <span>01</span>
+            <span>BUILD SESSION</span>
+            <span>10:00 → 17:00</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="stats container reveal">
+
+      <div>
+        <strong>01</strong>
+        <span>Day of building</span>
+      </div>
+
+      <div>
+        <strong>04+</strong>
+        <span>Hands-on sessions</span>
+      </div>
+
+      <div>
+        <strong>100+</strong>
+        <span>Student builders</span>
+      </div>
+
+      <div>
+        <strong>∞</strong>
+        <span>Ideas to launch</span>
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section container" id="about">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          01 · ABOUT THE DAY
+        </p>
+
+        <h2>
+          Turn curiosity into something you can
+          <span>ship.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-copy reveal">
+
+          <p class="large-copy">
+            Student Builder Community Day is a fictional campus event
+            built around practical learning instead of long lectures.
+          </p>
+
+          <p>
+            Explore cloud fundamentals, modern web development,
+            AI-assisted workflows and deployment through short sessions,
+            guided labs and community conversations.
+          </p>
+
+          <p>
+            Bring your laptop, your questions and one idea you want
+            to turn into a working prototype.
+          </p>
+
+        </div>
+
+
+        <div class="feature-list reveal delay-1">
+
+          <article class="feature-card">
+
+            <span>01</span>
+
+            <div>
+              <h3>Learn by doing</h3>
+
+              <p>
+                Follow guided workshops and build alongside mentors.
+              </p>
+            </div>
+
+            <b>↗</b>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <span>02</span>
+
+            <div>
+              <h3>Meet builders</h3>
+
+              <p>
+                Connect with students, developers and community volunteers.
+              </p>
+            </div>
+
+            <b>↗</b>
+
+          </article>
+
+
+          <article class="feature-card">
+
+            <span>03</span>
+
+            <div>
+              <h3>Ship your idea</h3>
+
+              <p>
+                Finish with a prototype, feedback and a clear next step.
+              </p>
+            </div>
+
+            <b>↗</b>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SCHEDULE -->
+    <section class="dark-section" id="schedule">
+
+      <div class="section container">
+
+        <div class="section-heading reveal">
+
+          <p class="eyebrow">
+            02 · SCHEDULE
+          </p>
+
+          <h2>
+            A day designed around
+            <span>momentum.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="timeline reveal">
+
+          <article class="timeline-row">
+
+            <time>10:00</time>
+
+            <div>
+              <small>ARRIVAL</small>
+
+              <h3>
+                Check-in & coffee
+              </h3>
+
+              <p>
+                Meet other student builders and get your event kit.
+              </p>
+            </div>
+
+            <b>01</b>
+
+          </article>
+
+
+          <article class="timeline-row">
+
+            <time>10:45</time>
+
+            <div>
+              <small>KEYNOTE</small>
+
+              <h3>
+                The builder mindset
+              </h3>
+
+              <p>
+                Community welcome and an introduction to the day.
+              </p>
+            </div>
+
+            <b>02</b>
+
+          </article>
+
+
+          <article class="timeline-row">
+
+            <time>12:00</time>
+
+            <div>
+              <small>HANDS-ON</small>
+
+              <h3>
+                Build your first cloud app
+              </h3>
+
+              <p>
+                Explore hosting, APIs and the basics of deployment.
+              </p>
+            </div>
+
+            <b>03</b>
+
+          </article>
+
+
+          <article class="timeline-row">
+
+            <time>14:00</time>
+
+            <div>
+              <small>LAB</small>
+
+              <h3>
+                AI + web project lab
+              </h3>
+
+              <p>
+                Use AI-assisted development to turn an idea into a prototype.
+              </p>
+            </div>
+
+            <b>04</b>
+
+          </article>
+
+
+          <article class="timeline-row">
+
+            <time>16:00</time>
+
+            <div>
+              <small>DEMO</small>
+
+              <h3>
+                Demo hour & networking
+              </h3>
+
+              <p>
+                Show your project, get feedback and meet the community.
+              </p>
+            </div>
+
+            <b>05</b>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMMUNITY -->
+    <section class="section container" id="community">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          03 · COMMUNITY
+        </p>
+
+        <h2>
+          People who help you keep
+          <span>building.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="community-grid">
+
+        <article class="person-card reveal">
+
+          <div class="avatar">SB</div>
+
+          <span class="card-number">01</span>
+
+          <h3>
+            Student Builder Mentors
+          </h3>
+
+          <p>
+            Cloud · Web · AI
+          </p>
+
+          <i></i>
+
+        </article>
+
+
+        <article class="person-card reveal delay-1">
+
+          <div class="avatar">RU</div>
+
+          <span class="card-number">02</span>
+
+          <h3>
+            Campus Community Team
+          </h3>
+
+          <p>
+            Developer community
+          </p>
+
+          <i></i>
+
+        </article>
+
+
+        <article class="person-card reveal delay-2">
+
+          <div class="avatar">DEV</div>
+
+          <span class="card-number">03</span>
+
+          <h3>
+            Guest Developers
+          </h3>
+
+          <p>
+            Projects · Careers · Open source
+          </p>
+
+          <i></i>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- REGISTRATION -->
+    <section class="section register-section container" id="register">
+
+      <div class="register-card reveal">
+
+        <div class="register-copy">
+
+          <p class="eyebrow">
+            04 · REGISTRATION
+          </p>
+
+          <h2>
+            Save your
+            <span>seat.</span>
+          </h2>
+
+          <p>
+            Registration is free for students. Submit the form to see
+            an instant confirmation in this front-end demo.
+          </p>
+
+          <ul>
+            <li>Bring your laptop + charger</li>
+            <li>Use an active email address</li>
+            <li>Carry your college ID</li>
+          </ul>
+
+          <p class="seat-note">
+            <span>●</span>
+            Demo seats available:
+            <b id="seatCount">100</b>
+          </p>
+
+        </div>
+
+
+        <form
+          class="registration-form"
+          id="registrationForm"
+          novalidate
+        >
+
+          <div class="field">
+
+            <label for="name">
+              Full name
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Mukesh Kumar"
+            >
+
+            <small data-error="name"></small>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="email">
+              Email address
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+            >
+
+            <small data-error="email"></small>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="college">
+              College / University
+            </label>
+
+            <input
+              id="college"
+              name="college"
+              type="text"
+              autocomplete="organization"
+              placeholder="Rungta University"
+            >
+
+            <small data-error="college"></small>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="interest">
+              Area of interest
+            </label>
+
+            <select id="interest" name="interest">
+
+              <option value="">
+                Select one
+              </option>
+
+              <option>
+                Cloud / AWS
+              </option>
+
+              <option>
+                Web Development
+              </option>
+
+              <option>
+                AI / ML
+              </option>
+
+              <option>
+                Data Science
+              </option>
+
+              <option>
+                Open Source
+              </option>
+
+            </select>
+
+            <small data-error="interest"></small>
+
+          </div>
+
+
+          <label class="consent">
+
+            <input id="consent" type="checkbox">
+
+            <span>
+              I agree to receive event updates for this fictional demo.
+            </span>
+
+          </label>
+
+
+          <button
+            class="button button-primary submit-button"
+            type="submit"
+          >
+            Complete registration
+            <span>→</span>
+          </button>
+
+
+          <p
+            class="form-message"
+            id="formMessage"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="section container faq" id="faq">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          05 · FAQ
+        </p>
+
+        <h2>
+          Quick
+          <span>answers.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="faq-list reveal">
+
+        <details>
+
+          <summary>
+            Is this event free?
+            <span>+</span>
+          </summary>
+
+          <p>
+            Yes. This fictional event is presented as free for students.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Do I need prior AWS experience?
+            <span>+</span>
+          </summary>
+
+          <p>
+            No. The sessions are designed for beginners, while experienced
+            students can extend the projects.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            What should I bring?
+            <span>+</span>
+          </summary>
+
+          <p>
+            Bring a laptop, charger, college ID and an idea you would like
+            to build.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Can I deploy this website?
+            <span>+</span>
+          </summary>
+
+          <p>
+            Yes. It is a static HTML, CSS and JavaScript project and can be
+            deployed on GitHub Pages, Netlify or Vercel.
+          </p>
+
+        </details>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container footer-inner">
+
+      <a class="brand" href="#home">
+
+        <span class="aws-mark">
+          aws
+        </span>
+
+        <span class="brand-rule"></span>
+
+        <span class="brand-text">
+          Student Builder<br>
+          <b>Community Day</b>
+        </span>
+
+      </a>
+
+      <p>
+        Fictional screening-task project · HTML · CSS · JavaScript
+      </p>
+
+      <a
+        class="back-top"
+        href="#home"
+        aria-label="Back to top"
+      >
+        ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+  <script src="aws.js"></script>
+
+</body>
+</html>

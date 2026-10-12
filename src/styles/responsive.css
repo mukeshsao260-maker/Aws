@@ -1,0 +1,117 @@
+/* ========================================================
+   RESPONSIVE DESIGN & BREAKPOINT UTILITIES
+   Tested for: 360px, 390px, 768px, 1024px, 1440px+
+   ======================================================== */
+
+/* Mobile view adjustments (<= 768px) */
+@media (max-width: 768px) {
+  :root {
+    --section-pad-y: 3.5rem;
+  }
+
+  /* Headings on mobile */
+  h1, .hero-display-title {
+    font-size: clamp(2.5rem, 11vw, 4.5rem) !important;
+    letter-spacing: -0.04em !important;
+    line-height: 0.9 !important;
+  }
+
+  h2, .section-heading-title {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+  }
+
+  /* Grid adaptations */
+  .grid-2-col, .grid-3-col, .grid-4-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Navigation adjustments */
+  .desktop-nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  /* Schedule layout stacking */
+  .schedule-row-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Stats grid */
+  .stats-grid-container {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Terminal responsiveness */
+  .terminal-box {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  /* Form adjustments */
+  .registration-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Responsive Toast */
+  .noise-toast {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    left: 1rem !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  /* Hide custom cursor on touch/mobile devices */
+  .custom-cursor-element {
+    display: none !important;
+  }
+}
+
+/* Very small screens (<= 390px) */
+@media (max-width: 390px) {
+  .stats-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .btn-noise-primary, .btn-noise-outline {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .hero-actions-container {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Tablet view (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  .stats-grid-container {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .about-layout-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .registration-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Large screens (>= 1440px) */
+@media (min-width: 1440px) {
+  .hero-display-title {
+    font-size: 6.5rem !important;
+  }
+}
