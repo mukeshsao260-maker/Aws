@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { NAV_LINKS } from '../data/eventData';
-import { getAuthUser, logoutUser } from '../lib/auth';
-import { Sun, Moon, Menu, X, ArrowUpRight, Lock, ShieldCheck, LogOut, User } from 'lucide-react';
+import { NAV_LINKS, REGISTRATION_URL } from '../data/eventData';
+import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import awsLogo from '../assets/images/aws_logo.jpg';
 
 interface HeaderProps {
   theme: 'dark' | 'light';
@@ -12,7 +12,6 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [currentUser, setCurrentUser] = useState(getAuthUser());
   const location = useLocation();
 
   useEffect(() => {
@@ -28,13 +27,6 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     setMobileMenuOpen(false);
   }, [location]);
 
-  useEffect(() => {
-    const handleAuthChange = () => {
-      setCurrentUser(getAuthUser());
-    };
-    window.addEventListener('auth_state_changed', handleAuthChange);
-    return () => window.removeEventListener('auth_state_changed', handleAuthChange);
-  }, []);
 
   return (
     <header
@@ -70,21 +62,32 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             }}
             data-cursor="HOME"
           >
-            {/* AWS Mark */}
+            {/* AWS Logo */}
             <div
               style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '1.75rem',
-                fontWeight: 900,
-                letterSpacing: '-0.06em',
-                lineHeight: 1,
-                color: 'var(--text-primary)',
-                padding: '2px 7px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '54px',
+                height: '38px',
+                padding: '2px 4px',
+                backgroundColor: '#ffffff',
                 border: '1.5px solid var(--border-strong)',
-                backgroundColor: 'var(--bg-secondary)'
+                boxShadow: '2px 2px 0px 0px var(--border-strong)',
+                overflow: 'hidden',
+                flexShrink: 0
               }}
             >
-              aws
+              <img
+                src={awsLogo}
+                alt="AWS Logo"
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+              />
             </div>
 
             {/* Vertical Divider */}
@@ -146,116 +149,26 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             ))}
 
             {/* Quick Register CTA Button */}
-            <Link
-              to="/register"
+            <a
+              href={REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-noise-primary"
               style={{
                 padding: '0.5rem 1rem',
-                fontSize: '0.75rem'
+                fontSize: '0.75rem',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px'
               }}
               data-cursor="RESERVE"
             >
               REGISTER
               <ArrowUpRight size={14} />
-            </Link>
+            </a>
 
-            {/* Auth Session / Role Link */}
-            {currentUser?.role === 'admin' ? (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Link
-                  to="/admin"
-                  className="btn-noise-outline"
-                  style={{
-                    padding: '0.45rem 0.75rem',
-                    fontSize: '0.6875rem',
-                    borderColor: 'var(--accent-toxic)',
-                    color: 'var(--accent-toxic)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '5px'
-                  }}
-                  title="Admin Console & Excel Database"
-                >
-                  <ShieldCheck size={13} />
-                  <span>ADMIN [EXCEL]</span>
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => logoutUser()}
-                  title="Logout Admin"
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--accent-red)',
-                    cursor: 'pointer',
-                    padding: '4px',
-                    display: 'flex',
-                    alignItems: 'center'
-                  }}
-                >
-                  <LogOut size={14} />
-                </button>
-              </div>
-            ) : currentUser?.role === 'user' ? (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.6875rem',
-                    color: 'var(--text-muted)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px'
-                  }}
-                >
-                  <User size={13} style={{ color: 'var(--accent-toxic)' }} />
-                  <span>{currentUser.name}</span>
-                </span>
-                <button
-                  type="button"
-                  onClick={() => logoutUser()}
-                  title="Logout"
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--accent-red)',
-                    cursor: 'pointer',
-                    padding: '4px',
-                    display: 'flex',
-                    alignItems: 'center'
-                  }}
-                >
-                  <LogOut size={14} />
-                </button>
-              </div>
-            ) : (
-              <Link
-                to="/login"
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.75rem',
-                  color: 'var(--text-muted)',
-                  textDecoration: 'none',
-                  padding: '0.45rem 0.75rem',
-                  border: '1px solid var(--border-color)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  transition: 'all var(--transition-fast)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--accent-toxic)';
-                  e.currentTarget.style.borderColor = 'var(--accent-toxic)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--text-muted)';
-                  e.currentTarget.style.borderColor = 'var(--border-color)';
-                }}
-              >
-                <Lock size={12} />
-                <span>LOGIN</span>
-              </Link>
-            )}
+
 
             {/* Theme Toggle Button */}
             <button
@@ -358,35 +271,17 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               <span style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>[{link.code}]</span>
             </NavLink>
           ))}
-          {currentUser?.role === 'admin' ? (
-            <Link
-              to="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-noise-outline"
-              style={{ width: '100%', marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
-            >
-              <ShieldCheck size={16} />
-              <span>ORGANIZER CONSOLE [EXCEL]</span>
-            </Link>
-          ) : (
-            <Link
-              to="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-noise-outline"
-              style={{ width: '100%', marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
-            >
-              <Lock size={15} />
-              <span>SIGN IN / ADMIN LOGIN</span>
-            </Link>
-          )}
-          <Link
-            to="/register"
+
+          <a
+            href={REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
             className="btn-noise-primary"
-            style={{ width: '100%', marginTop: '0.5rem' }}
+            style={{ width: '100%', marginTop: '0.5rem', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
           >
             RESERVE MY SEAT →
-          </Link>
+          </a>
         </div>
       )}
     </header>

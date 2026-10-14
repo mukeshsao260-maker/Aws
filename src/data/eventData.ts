@@ -28,12 +28,15 @@ export const EVENT_INFO: EventInfo = {
   seatCapacity: 100
 };
 
+// External Registration URL (Replace this with the actual URL provided by user)
+export const REGISTRATION_URL = "https://example.com/register";
+
 export const NAV_LINKS = [
   { label: "Home", path: "/", code: "00" },
   { label: "About", path: "/about", code: "01" },
   { label: "FAQ", path: "/faq", code: "02" },
   { label: "Contact", path: "/contact", code: "03" },
-  { label: "Register", path: "/register", code: "04", isCta: true }
+  { label: "Register", path: REGISTRATION_URL, code: "04", isCta: true }
 ];
 
 export const STATS = [

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { SectionHeading } from '../components/SectionHeading';
-import { EVENT_INFO } from '../data/eventData';
+import { EVENT_INFO, REGISTRATION_URL } from '../data/eventData';
 import { FEATURE_DATA } from '../lib/data';
 import { setupImageReveal, setupScrollStagger } from '../lib/animations';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -264,10 +263,17 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <Link to="/register" className="btn-noise-primary" data-cursor="REGISTER">
+          <a
+            href={REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-noise-primary"
+            data-cursor="REGISTER"
+            style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+          >
             REGISTER FOR THE DAY
             <ArrowRight size={16} />
-          </Link>
+          </a>
         </div>
       </div>
     </div>
